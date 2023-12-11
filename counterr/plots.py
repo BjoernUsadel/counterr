@@ -10,8 +10,8 @@ def plot_per_read_Q_stats(means_pass, meds_pass, stds_pass, means_fail, meds_fai
         bins = np.arange(-0.5, 30.5, 1.)        
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 12))
     # pass
-    ax1.hist(means_pass, bins=bins, histtype="step", color="black", label="pass/mean", lw=1.5, normed=True)
-    ax1.hist(meds_pass, bins=bins, histtype="step", color="red", label="pass/med", lw=1.5, normed=True)
+    ax1.hist(means_pass, bins=bins, histtype="step", color="black", label="pass/mean", lw=1.5, density=True)
+    ax1.hist(meds_pass, bins=bins, histtype="step", color="red", label="pass/med", lw=1.5, density=True)
     ax1.set_title("Pass reads", fontsize=ft_size)
     ax1.set_xlabel("Q-score stat", fontsize=ft_size)
     if illumina:
@@ -20,8 +20,8 @@ def plot_per_read_Q_stats(means_pass, meds_pass, stds_pass, means_fail, meds_fai
         ax1.set_xlim([0, 30])        
     ax1.legend(loc="upper right", fontsize=ft_size)
     # fail
-    ax2.hist(means_fail, bins=bins, histtype="step", color="black", label="fail/mean", lw=1.5, normed=True)
-    ax2.hist(meds_fail, bins=bins, histtype="step", color="red", label="fail/med", lw=1.5, normed=True)
+    ax2.hist(means_fail, bins=bins, histtype="step", color="black", label="fail/mean", lw=1.5, density=True)
+    ax2.hist(meds_fail, bins=bins, histtype="step", color="red", label="fail/med", lw=1.5, density=True)
     ax2.set_title("Fail reads", fontsize=ft_size)
     ax2.set_xlabel("Q-score stat", fontsize=ft_size)    
     if illumina:
@@ -44,8 +44,8 @@ def plot_per_read_Q_stats(means_pass, meds_pass, stds_pass, means_fail, meds_fai
         bins = np.arange(-0.5, 30.5, 1.)
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 12))
     # pass
-    ax1.hist(means_pass, bins=bins, histtype="step", color="black", label="pass/mean", lw=1.5, normed=True)
-    ax1.hist(means_fail, bins=bins, histtype="step", color="red", label="fail/mean", lw=1.5, normed=True)
+    ax1.hist(means_pass, bins=bins, histtype="step", color="black", label="pass/mean", lw=1.5, density=True)
+    ax1.hist(means_fail, bins=bins, histtype="step", color="red", label="fail/mean", lw=1.5, density=True)
     ax1.set_title("Mean", fontsize=ft_size)
     ax1.set_xlabel("Q-score stat", fontsize=ft_size)        
     if illumina:
@@ -54,8 +54,8 @@ def plot_per_read_Q_stats(means_pass, meds_pass, stds_pass, means_fail, meds_fai
         ax1.set_xlim([0, 30])                
     ax1.legend(loc="upper right", fontsize=ft_size)
     # fail
-    ax2.hist(meds_pass, bins=bins, histtype="step", color="black", label="pass/med", lw=1.5, normed=True)
-    ax2.hist(meds_fail, bins=bins, histtype="step", color="red", label="fail/med", lw=1.5, normed=True)
+    ax2.hist(meds_pass, bins=bins, histtype="step", color="black", label="pass/med", lw=1.5, density=True)
+    ax2.hist(meds_fail, bins=bins, histtype="step", color="red", label="fail/med", lw=1.5, density=True)
     ax2.set_title("Med", fontsize=ft_size)
     ax2.set_xlabel("Q-score stat", fontsize=ft_size)    
     if illumina:
@@ -143,8 +143,8 @@ def plot_per_read_Q_stats_aligned(means_in, stds_in, lens_in, means_out, stds_ou
     len_max = max(len_max_in, len_max_out)*1.05
     if len_max > 10: # Otherwise what's the point?
         bins = np.arange(0, len_max, len_max/100.)        
-        ax.hist(lens_in, bins=bins, color="black", label="Aligned", histtype="step", normed=True)
-        ax.hist(lens_out, bins=bins, color="red", label="Unaligned", histtype="step", normed=True)
+        ax.hist(lens_in, bins=bins, color="black", label="Aligned", histtype="step", density=True)
+        ax.hist(lens_out, bins=bins, color="red", label="Unaligned", histtype="step", density=True)
         ax.set_xlabel("Length", fontsize=ft_size)
         ax.set_xlim([0, len_max])
         ax.legend(loc="upper right", fontsize=ft_size)    
