@@ -84,8 +84,8 @@ def plot_per_read_Q_stats(means_pass, meds_pass, stds_pass, means_fail, meds_fai
     ax.set_ylabel("Std", fontsize=ft_size)
     lgnd = plt.legend(loc="upper right", fontsize=ft_size, numpoints=1)
     #change the marker size manually
-    lgnd.legendHandles[0]._sizes = [30]
-    lgnd.legendHandles[1]._sizes = [30]    
+    lgnd.legend_handles[0]._sizes = [30]
+    lgnd.legend_handles[1]._sizes = [30]    
     if illumina:
         ax.set_xlim([0, 50])
         ax.set_ylim([0, 25])
@@ -116,8 +116,8 @@ def plot_per_read_Q_stats_aligned(means_in, stds_in, lens_in, means_out, stds_ou
     # ax.set_title("Mean", fontsize = 10)
     lgnd = plt.legend(loc="upper right", fontsize=ft_size, numpoints=1)
     #change the marker size manually
-    lgnd.legendHandles[0]._sizes = [30]
-    lgnd.legendHandles[1]._sizes = [30]
+    lgnd.legend_handles[0]._sizes = [30]
+    lgnd.legend_handles[1]._sizes = [30]
     if illumina:
         ax.set_xlim([0, 50])
         ax.set_ylim([0, 25])
@@ -247,10 +247,10 @@ def plot_per_read_error_stats(lens, lens_aligned, nums_match, nums_sub, nums_ins
     ax.plot([0, len_max_lim], [0, len_max_lim], ls="--", lw=0.5, c="red")
     fig_name = os.path.join(output_dir, "per_read_len_vs_error_div_len_aligned.png")
     lgnd = ax.legend(loc="center right", fontsize=ft_size, scatterpoints=1)
-    lgnd.legendHandles[0]._sizes = [20]
-    lgnd.legendHandles[1]._sizes = [20]
-    lgnd.legendHandles[2]._sizes = [20]
-    lgnd.legendHandles[3]._sizes = [20]
+    lgnd.legend_handles[0]._sizes = [20]
+    lgnd.legend_handles[1]._sizes = [20]
+    lgnd.legend_handles[2]._sizes = [20]
+    lgnd.legend_handles[3]._sizes = [20]
     ax.set_xlabel("Length", fontsize=ft_size)
     ax.set_ylabel("(# occurrence) / length aligned", fontsize=ft_size)
     ax.set_xlim([0, len_max_lim])
